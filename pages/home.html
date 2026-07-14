@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pabitra Ratha Yatra Utsavra Digital Gallery</title>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<div id="loader">
+<img src="../images/loader-bg.jpg"
+class="loader-bg-img">
+<div class="loader-content">
+<img src="../images/logo.png"
+class="loader-logo">
+<h2>ଦର୍ପଣ</h2>
+<p>ଜୟ ଜଗନ୍ନାଥ</p>
+</div>
+</div>
+
+
+<button class="menu-btn" onclick="openMenu()">☰</button>
+
+<div class="banner">
+
+<img src="../images/banner.jpg" alt="Banner">
+
+</div>
+
+<div class="update-bar">
+
+    <span class="update-label">
+        📢 UPDATES :
+    </span>
+
+    <marquee scrollamount="5">
+        📸 ନୂଆ ଫଟୋ ଆସୁଅଛି   |
+        🎬 ୨୦୨୬ ର ଭିଡିଓ ସନ୍ଧ୍ୟା ୮ ଘଟିକାରେ ଆସିବ   |
+        🔴 Live ଦର୍ଶନ ଉପଲବ୍ଧ   |
+        🙏 ଜୟ ଜଗନ୍ନାଥ 🙏  |
+        📸 New photos will be uploaded Soon |
+        🎬 2026 Videos Will Available At 8pm  |
+        🔴 Live Available  |
+        🙏 Jay Jagannath 🙏
+    </marquee>
+
+</div>
+<div class="grid">
+
+<a href="photos.html" class="card menu-card">
+<img src="../images/icons/photos.png"
+class="menu-icon">
+<div>Photos</div>
+</a>
+
+<a href="videos.html" class="card menu-card">
+<img src="../images/icons/videos.png"
+class="menu-icon">
+<div>Videos</div>
+</a>
+
+<a href="memories.html" class="card menu-card">
+<img src="../images/icons/memories.png"
+class="menu-icon">
+<div>Memories</div>
+</a>
+
+<a href="live.html" class="card menu-card">
+<img src="../images/icons/live.png"
+class="menu-icon">
+<div>Live</div>
+</a>
+
+<a href="contact.html" class="card menu-card">
+<img src="../images/icons/contact.png"
+class="menu-icon">
+<div>Contact</div>
+</a>
+
+<a href="#" class="card menu-card" onclick="shareWebsite()">
+<img src="../images/icons/share.png"
+class="menu-icon">
+<div>Share</div>
+</a>
+
+<a href="schedule.html" class="card menu-card">
+<img src="../images/icons/schedule.png"
+class="menu-icon">
+<div>Schedule</div>
+</a>
+
+<a href="about.html" class="card menu-card">
+<img src="../images/icons/about.png"
+class="menu-icon">
+<div>About</div>
+</a>
+
+</div>
+
+<div class="countdown-card">
+<h2>ପବିତ୍ର ରଥଯାତ୍ରା ୨୦୨୬</h2>
+<div id="countdown">
+Loading...
+</div>
+</div>
+
+<a href="photos.html" class="featured-photo-card">
+
+<h3>PHOTO OF THE DAY</h3>
+
+<img src="../images/featured.jpg"
+class="featured-photo">
+
+<p>View Gallery →</p>
+
+</a>
+
+
+<footer class="footer">
+© Rath Yatra Portal | By : ରଥଯାତ୍ରା କମିଟି , ଦେଉଳା
+</footer>
+
+<div style="height:120px;"></div>
+
+<div class="bottom-nav">
+
+<a href="home.html" class="active">
+<img src="../images/icons/home.png" class="nav-icon">
+</a>
+
+<a href="photos.html">
+<img src="../images/icons/photos.png" class="nav-icon">
+</a>
+
+<a href="search.html">
+<img src="../images/icons/search.png" class="nav-icon">
+</a>
+
+<a href="videos.html">
+<img src="../images/icons/videos.png" class="nav-icon">
+</a>
+
+<a href="notifications.html">
+<img src="../images/icons/bell.png"
+class="nav-icon">
+</a>
+
+</div>
+
+<div id="menuOverlay" class="menu-overlay"></div>
+
+<div id="sideMenu" class="side-menu">
+
+<span class="close-menu" onclick="closeMenu()">✖</span>
+
+<div class="menu-header">
+
+<img src="../images/logo.png" class="menu-logo">
+
+<h3>ପବିତ୍ର ରଥଯାତ୍ରା ଉତ୍ସବ</h3>
+
+</div>
+
+<a href="home.html">
+<img src="../images/icons/home.png" class="menu-icon">
+Home
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="notifications.html">
+<img src="../images/icons/bell.png"
+class="menu-icon">
+Notifications
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="photos.html">
+<img src="../images/icons/photos.png" class="menu-icon">
+Photos
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="videos.html">
+<img src="../images/icons/videos.png" class="menu-icon">
+Videos
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="memories.html">
+<img src="../images/icons/memories.png" class="menu-icon">
+Memories
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="live.html">
+<img src="../images/icons/live.png" class="menu-icon">
+Live
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="locations.html">
+<img src="../images/icons/location.png"
+class="menu-icon">
+Locations
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="contact.html">
+<img src="../images/icons/contact.png" class="menu-icon">
+Contact
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="about.html">
+<img src="../images/icons/about.png" class="menu-icon">
+About
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="schedule.html">
+<img src="../images/icons/schedule.png" class="menu-icon">
+Schedule
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="committee.html">
+<img src="../images/icons/committee.png" class="menu-icon">
+Committee
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="help.html">
+<img src="../images/icons/help.png" class="menu-icon">
+Help
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="announcements.html">
+<img src="../images/icons/announcement.png" class="menu-icon">
+Announcements
+</a>
+
+<div class="menu-divider"></div>
+
+<a href="#" onclick="shareWebsite()">
+<img src="../images/icons/share.png"
+class="menu-icon">
+Share Portal
+</a>
+
+</div>
+
+<script>
+
+const sideMenu =
+document.getElementById("sideMenu");
+
+const overlay =
+document.getElementById("menuOverlay");
+
+function openMenu(){
+
+    sideMenu.style.left = "0";
+
+    overlay.style.display = "block";
+
+    document.body.style.overflow = "hidden";
+}
+
+function closeMenu(){
+
+    sideMenu.style.left = "-280px";
+
+    overlay.style.display = "none";
+
+    document.body.style.overflow = "auto";
+}
+
+overlay.addEventListener("click", closeMenu);
+
+</script>
+
+<script>
+
+if(sessionStorage.getItem("loaderShown")){
+
+document.getElementById("loader").style.display="none";
+
+}else{
+
+sessionStorage.setItem("loaderShown","true");
+
+window.addEventListener("load",function(){
+
+setTimeout(function(){
+
+document.getElementById("loader").style.display="none";
+
+document.body.classList.add("fade-in");
+
+},3500);
+
+
+});
+
+}
+</script>
+
+
+
+<script>
+
+function shareWebsite(){
+
+if(navigator.share){
+
+navigator.share({
+
+title:"Ratha Yatra Portal",
+
+text:"Visit our Ratha Yatra Digital Portal",
+
+url:window.location.origin
+
+});
+
+}else{
+
+alert("Sharing is not supported on this device.");
+
+}
+
+}
+
+</script>
+
+<script>
+
+const eventDate =
+new Date("July 16, 2026 00:00:00").getTime();
+
+function updateCountdown(){
+
+const now = new Date().getTime();
+
+const distance = eventDate - now;
+
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("countdown").innerHTML =
+days + "d " +
+hours + "h " +
+minutes + "m " +
+seconds + "s";
+
+}
+
+updateCountdown();
+
+setInterval(updateCountdown,1000);
+
+</script>
+
+<script>
+
+function enableUpdates(){
+
+alert(
+"Notification service will be activated after website launch."
+);
+
+}
+
+</script>
+
+
+</body>
+</html>

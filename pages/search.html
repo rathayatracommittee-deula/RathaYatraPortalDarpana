@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search</title>
+
+<link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+<h1 class="page-title">
+<img src="../images/icons/search.png" class="card-search-title-icon">
+Search
+</h1>
+
+<a href="home.html" class="home-btn">
+⬅ Back
+</a>
+
+<input
+type="text"
+id="searchInput"
+class="search-box"
+placeholder="Search Photos, Videos, Live, Contact..."
+onkeyup="searchPortal()"
+
+>
+
+<div id="searchResults" class="result">
+
+<p>
+<img src="../images/icons/keyboard.png"
+class="card-search-title-icon">
+Start Typing...</p>
+
+</div>
+
+<footer class="footer">
+© Rath Yatra Portal | By : ରଥଯାତ୍ରା କମିଟି , ଦେଉଳା
+</footer>
+
+<div style="height:120px;"></div>
+
+<div class="bottom-nav">
+
+<a href="home.html">
+<img src="../images/icons/home.png" class="nav-icon">
+</a>
+
+<a href="photos.html">
+<img src="../images/icons/photos.png" class="nav-icon">
+</a>
+
+<a href="search.html" class="active">
+<img src="../images/icons/search.png" class="nav-icon">
+</a>
+
+<a href="videos.html">
+<img src="../images/icons/videos.png" class="nav-icon">
+</a>
+
+<a href="notifications.html">
+<img src="../images/icons/bell.png"
+class="nav-icon">
+</a>
+
+</div>
+
+<script>
+
+const pages = [
+
+{name:"Photos", link:"photos.html"},
+{name:"Videos", link:"videos.html"},
+{name:"Memories", link:"memories.html"},
+{name:"Live", link:"live.html"},
+{name:"Contact", link:"contact.html"},
+{name:"About", link:"about.html"},
+{name:"Help", link:"help.html"},
+{name:"Committee", link:"committee.html"},
+{name:"Announcements", link:"announcements.html"},
+{name:"Schedule", link:"schedule.html"},
+
+{name:"2024 Photos", link:"photos/2024.html"},
+{name:"2025 Photos", link:"photos/2025.html"},
+{name:"2026 Photos", link:"photos/2026.html"},
+
+{name:"2024 Videos", link:"videos/videos2024.html"},
+{name:"2025 Videos", link:"videos/videos2025.html"},
+{name:"2026 Videos", link:"videos/videos2026.html"},
+
+{name:"Temple Location", link:"contact.html"},
+{name:"Mausi Badi", link:"contact.html"},
+{name:"Rath Yatra", link:"schedule.html"},
+{name:"Bahuda Yatra", link:"schedule.html"},
+{name:"Suna Besha", link:"schedule.html"},
+{name:"Niladri Bije", link:"schedule.html"}
+
+];
+
+function searchPortal(){
+
+let input =
+document.getElementById("searchInput")
+.value
+.toLowerCase();
+
+let output = "";
+
+pages.forEach(item=>{
+
+if(item.name.toLowerCase().includes(input)){
+
+output += `
+
+<a href="${item.link}"
+class="search-result">
+
+${item.name}
+
+</a>
+
+`;
+
+}
+
+});
+
+if(output===""){
+
+output = "<p>No results found.</p>";
+
+}
+
+document.getElementById("searchResults")
+.innerHTML = output;
+
+}
+
+</script>
+
+</body>
+</html>

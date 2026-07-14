@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ratha Yatra 2024</title>
+
+<link rel="stylesheet" href="../../style.css">
+
+</head>
+<body>
+
+<h1>ରଥଯାତ୍ରା - ୨୦୨୪</h1>
+
+<a href="2024.html" class="back-btn">
+    ← Back
+</a>
+
+<h2>
+<p id="photoCount"></p>
+
+<div class="photo-gallery" id="gallery">
+</div>
+</h2>
+
+<footer class="footer">
+© Rath Yatra Portal | By : ରଥଯାତ୍ରା କମିଟି , ଦେଉଳା
+</footer>
+
+<div style="height:120px;"></div>
+
+<div class="bottom-nav">
+
+<a href="../home.html">
+<img src="../../images/icons/home.png" class="nav-icon">
+</a>
+
+<a href="../photos.html">
+<img src="../../images/icons/photos.png" class="nav-icon">
+</a>
+
+<a href="../search.html">
+<img src="../../images/icons/search.png" class="nav-icon">
+</a>
+
+<a href="../videos.html">
+<img src="../../images/icons/videos.png" class="nav-icon">
+</a>
+
+<a href="../notifications.html">
+<img src="../../images/icons/bell.png" class="nav-icon">
+</a>
+
+</div>
+
+<div id="photoPopup" class="popup">
+
+    <span class="close-btn" onclick="closePopup()">✖</span>
+
+    <div class="popup-nav">
+
+    <button onclick="prevPhoto()" class="nav-btn">⬅</button>
+
+    <img id="popupImage">
+
+    <button onclick="nextPhoto()" class="nav-btn">➡</button>
+
+</div>
+
+    <a id="downloadBtn" download>
+    Download Photo
+</a>
+
+</div>
+
+<script>
+
+const imageFolder = "../../images/2024/rathayatra/";
+
+const photos = [
+"IMG20240707160357_01.jpg",
+"IMG20240707160358_01.jpg",
+"IMG20240707161036_01.jpg",
+"IMG20240707161043_01.jpg",
+"IMG20240707161045_01.jpg",
+"IMG20240707161052_01.jpg",
+"IMG20240707161308_01.jpg",
+"IMG20240707161633_01.jpg",
+"IMG20240707161644_01.jpg",
+"IMG20240707161711_01.jpg",
+"IMG20240707161814_01.jpg",
+"IMG20240707161819_01.jpg",
+"IMG20240707162643_01.jpg",
+"IMG20240707162647_01.jpg",
+"IMG20240707162650_01.jpg",
+"IMG20240707162654_01.jpg",
+"IMG20240707164135_01.jpg",
+"IMG20240707164138_01.jpg",
+"IMG20240707164737_01.jpg",
+"IMG20240707164744_01.jpg",
+"IMG20240707164751_01.jpg",
+"IMG20240707165630_01.jpg",
+"IMG20240707165632_01.jpg",
+"IMG20240707165640_01.jpg",
+"IMG20240707165941_01.jpg",
+"IMG20240707170004_01.jpg",
+"IMG20240707170126.jpg",
+"IMG20240707170159_01.jpg",
+"IMG20240707170841_01.jpg",
+"IMG20240707171308_01.jpg",
+"IMG20240707171317_01.jpg",
+"IMG20240707171320_01.jpg",
+"IMG20240707171442_01.jpg",
+"IMG20240707171531_01.jpg",
+"IMG20240707171608_01.jpg",
+"IMG20240707172151_01.jpg",
+"IMG20240707172413_01.jpg",
+"IMG20240707172415_01.jpg",
+"IMG20240707172652_01.jpg",
+"IMG20240707173006_01.jpg",
+"IMG20240707173427_01.jpg",
+"IMG20240707173431_01.jpg",
+"IMG20240707181514.jpg",
+"IMG20240707181516.jpg",
+"IMG20240707181526.jpg",
+"IMG20240707181535.jpg",
+"IMG20240707181536.jpg",
+"IMG20240707182300_01.jpg",
+"IMG20240707182408_01.jpg",
+"IMG20240707182410_01.jpg",
+"IMG20240707182422_01.jpg",
+"IMG20240707182424_01.jpg",
+"IMG20240707182506_01.jpg",
+"IMG20240707183748_01.jpg",
+"IMG20240707183749_01.jpg",
+"IMG20240707183749_03.jpg",
+"IMG20240707183801_01.jpg",
+"IMG20240708181123.jpg",
+"IMG20240708181128.jpg",
+"IMG20240708181134.jpg",
+"IMG20240708181144.jpg",
+"IMG20240708181238_01.jpg",
+"IMG20240708181905.jpg",
+"IMG20240708181916_01.jpg",
+"IMG20240708181922_01.jpg",
+"IMG20240708182323.jpg",
+"IMG20240708182403.jpg",
+"IMG20240708182413.jpg",
+"IMG20240708182558.jpg",
+"IMG20240708182850.jpg",
+"IMG20240708183346.jpg",
+"IMG20240708183349.jpg",
+"IMG20240708183801_01.jpg",
+"IMG20240708184010_01.jpg",
+"IMG20240708184111.jpg",
+"IMG20240708184117.jpg",
+"IMG20240708184125.jpg",
+"IMG20240708194458.jpg",
+"IMG20240708233047.jpg"
+
+];
+
+const gallery=document.getElementById("gallery");
+let currentIndex = 0;
+document.getElementById("photoCount").innerText =
+` ${photos.length} Photos`;
+
+photos.forEach(photo=>{
+
+gallery.innerHTML+=`
+
+<img
+src="${imageFolder}${photo}"
+class="gallery-photo"
+loading="lazy"
+onclick="openPopup(this.src)">
+
+`;
+
+});
+
+function openPopup(imageSrc){
+
+    currentIndex = photos.findIndex(
+        photo => imageSrc.includes(photo)
+    );
+
+    document.getElementById("photoPopup").style.display="flex";
+
+    document.getElementById("popupImage").src=imageSrc;
+
+    document.getElementById("downloadBtn").href=imageSrc;
+}
+
+function closePopup(){
+
+    document.getElementById("photoPopup").style.display="none";
+}
+document.getElementById("photoPopup").addEventListener("click",function(e){
+
+    if(e.target===this){
+
+        closePopup();
+    }
+
+});
+
+function prevPhoto(){
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+
+        currentIndex = photos.length - 1;
+    }
+
+    let imagePath =
+imageFolder +
+photos[currentIndex];
+
+    document.getElementById("popupImage").src =
+    imagePath;
+
+    document.getElementById("downloadBtn").href =
+    imagePath;
+}
+
+function nextPhoto(){
+
+    currentIndex++;
+
+    if(currentIndex >= photos.length){
+
+        currentIndex = 0;
+    }
+
+   let imagePath =
+imageFolder +
+photos[currentIndex];
+
+    document.getElementById("popupImage").src =
+    imagePath;
+
+    document.getElementById("downloadBtn").href =
+    imagePath;
+}
+
+</script>
+
+<button id="topBtn" onclick="scrollToTop()">
+⬆
+</button>
+
+<script>
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.onscroll = function(){
+
+if(document.body.scrollTop > 300 ||
+document.documentElement.scrollTop > 300){
+
+topBtn.style.display = "block";
+
+}else{
+
+topBtn.style.display = "none";
+
+}
+
+};
+
+function scrollToTop(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+</script>
+
+
+</body>
+</html>

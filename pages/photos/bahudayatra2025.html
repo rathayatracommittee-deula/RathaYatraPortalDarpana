@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bahuda Yatra 2025</title>
+
+<link rel="stylesheet" href="../../style.css">
+
+</head>
+<body>
+
+<h1>ବାହୁଡ଼ା ଯାତ୍ରା - ୨୦୨୫</h1>
+
+<a href="2025.html" class="home-btn">⬅ Back</a>
+
+<h2>
+<p id="photoCount"></p>
+
+<div class="photo-gallery" id="gallery">
+</div>
+</h2>
+<footer class="footer">
+© Rath Yatra Portal | By : ରଥଯାତ୍ରା କମିଟି , ଦେଉଳା
+</footer>
+
+<div style="height:120px;"></div>
+
+<div class="bottom-nav">
+
+<a href="../home.html">
+<img src="../../images/icons/home.png" class="nav-icon">
+</a>
+
+<a href="../photos.html">
+<img src="../../images/icons/photos.png" class="nav-icon">
+</a>
+
+<a href="../search.html">
+<img src="../../images/icons/search.png" class="nav-icon">
+</a>
+
+<a href="../videos.html">
+<img src="../../images/icons/videos.png" class="nav-icon">
+</a>
+
+<a href="../notifications.html">
+<img src="../../images/icons/bell.png" class="nav-icon">
+</a>
+
+</div>
+
+<div id="photoPopup" class="popup">
+
+    <span class="close-btn" onclick="closePopup()">✖</span>
+
+    <div class="popup-nav">
+
+    <button onclick="prevPhoto()" class="nav-btn">⬅</button>
+
+    <img id="popupImage">
+
+    <button onclick="nextPhoto()" class="nav-btn">➡</button>
+
+</div>
+
+    <a id="downloadBtn" download>
+    Download Photo
+</a>
+
+</div>
+
+<script>
+
+const imageFolder = "../../images/2025/bahudayatra/";
+
+const photos = [
+"IMG20250705163419.jpg",
+
+  "IMG20250705163424.jpg",
+
+  "IMG20250705163425.jpg",
+
+  "IMG20250705163427.jpg",
+
+  "IMG20250705163438.jpg",
+
+  "IMG20250705163439.jpg",
+
+  "IMG20250705164400.jpg",
+
+  "IMG20250705164404.jpg",
+
+  "IMG20250705164419.jpg",
+
+  "IMG20250705164423.jpg",
+
+  "IMG20250705164430.jpg",
+
+  "IMG20250705164444.jpg",
+
+  "IMG20250705164447.jpg",
+
+  "IMG20250705164452.jpg",
+
+  "IMG20250705164455.jpg",
+
+  "IMG20250705164553.jpg",
+
+  "IMG20250705164554.jpg",
+
+  "IMG20250705164556.jpg",
+
+  "IMG20250705164614.jpg",
+
+  "IMG20250705164616.jpg",
+
+  "IMG20250705164618.jpg",
+
+  "IMG20250705164717.jpg",
+
+  "IMG20250705164724.jpg",
+
+  "IMG20250705164726.jpg",
+
+  "IMG20250705164727.jpg",
+
+  "IMG20250705164728.jpg",
+
+  "IMG20250705164730.jpg",
+
+  "IMG20250705164808.jpg",
+
+  "IMG20250705164821.jpg",
+
+  "IMG20250705164829.jpg",
+
+  "IMG20250705164834.jpg",
+
+  "IMG20250705164835.jpg",
+
+  "IMG20250705164838.jpg",
+
+  "IMG20250705164905.jpg",
+
+  "IMG20250705164907.jpg",
+
+  "IMG20250705165138.jpg",
+
+  "IMG20250705165141.jpg",
+
+  "IMG20250705165143.jpg",
+
+  "IMG20250705170717_01.jpg",
+
+  "IMG20250705170720_01.jpg",
+
+  "IMG20250705170807_01.jpg",
+
+  "IMG20250705170812_01.jpg",
+
+  "IMG20250705170922_01.jpg",
+
+  "IMG20250705170923_01.jpg",
+
+  "IMG20250705171040_01.jpg",
+
+  "IMG20250705175957.jpg",
+
+  "IMG20250705180001.jpg",
+
+  "IMG20250705180009.jpg",
+
+  "IMG20250705180012.jpg",
+
+  "IMG20250705180603.jpg",
+
+  "IMG20250705180605.jpg",
+
+  "IMG20250705181235.jpg",
+
+  "IMG20250705181251.jpg",
+
+  "IMG20250705181259.jpg",
+
+  "IMG20250705181301.jpg",
+
+  "IMG20250705181312.jpg",
+
+  "IMG20250705181314.jpg",
+
+  "IMG20250705181316.jpg",
+
+  "IMG20250705181524.jpg",
+
+  "IMG20250705181528.jpg",
+
+  "IMG20250705181529.jpg",
+
+  "IMG20250705181750.jpg",
+
+  "IMG20250705183307.jpg",
+
+  "IMG20250705183311.jpg",
+
+  "IMG20250705183312.jpg",
+
+  "IMG20250705183321.jpg",
+
+  "IMG20250705183411.jpg",
+
+  "IMG20250705183439.jpg",
+
+  "IMG20250705183441.jpg",
+
+  "IMG20250705183445.jpg",
+
+  "IMG20250705183447.jpg",
+
+  "IMG20250705183458.jpg",
+
+  "IMG20250705183524.jpg",
+
+  "IMG20250705183535.jpg",
+
+  "IMG20250705183537.jpg",
+
+  "IMG20250705184217.jpg",
+
+  "IMG20250705184238.jpg",
+
+  "IMG20250705184246.jpg",
+
+  "IMG20250705184250.jpg",
+
+  "IMG20250705201702.jpg",
+
+  "IMG20250705201705.jpg",
+
+  "IMG20250705201706.jpg",
+
+  "IMG20250705202707.jpg",
+
+  "IMG20250705202715.jpg",
+
+  "IMG20250705202835.jpg",
+
+  "IMG20250705202838.jpg",
+
+  "IMG20250705215441.jpg",
+
+  "IMG20250705215454.jpg",
+
+  "IMG20250705215456.jpg",
+
+  "IMG20250705215515.jpg",
+
+  "IMG20250705215525.jpg",
+
+  "IMG20250705215536.jpg",
+
+  "IMG20250705215553.jpg",
+
+  "IMG20250705215606.jpg",
+
+  "IMG20250705215628.jpg",
+
+  "IMG20250705215647.jpg",
+
+  "IMG20250705215655.jpg",
+
+  "IMG20250705215701.jpg",
+
+  "IMG20250705215711.jpg",
+
+  "IMG20250705215855.jpg",
+
+  "IMG20250705223119.jpg",
+
+  "IMG20250705223121.jpg",
+
+  "IMG20250705223129.jpg",
+
+  "IMG20250705223241.jpg",
+
+  "IMG20250705223244.jpg",
+
+  "IMG20250705223337.jpg",
+
+  "IMG20250705223343.jpg",
+
+  "IMG20250705223347.jpg",
+
+  "IMG20250705223350.jpg",
+
+  "IMG20250705223423.jpg",
+
+  "IMG20250705223425.jpg",
+
+  "IMG20250705223427.jpg",
+
+  "IMG20250705223502.jpg",
+
+  "IMG20250705223505.jpg",
+
+  "IMG20250705223507.jpg",
+
+  "IMG20250705223509.jpg",
+
+  "IMG20250705223545.jpg",
+
+  "IMG20250705223547.jpg",
+
+  "IMG20250705223549.jpg",
+
+  "IMG20250705223617.jpg",
+
+  "IMG20250705223621.jpg",
+
+  "IMG20250705223626.jpg",
+
+  "IMG20250705223628.jpg",
+
+  "IMG20250705223631.jpg",
+
+  "IMG20250705223738.jpg",
+
+  "IMG20250705223740.jpg",
+
+  "IMG20250705223902.jpg",
+
+  "IMG20250705223905.jpg",
+
+  "IMG20250705223908.jpg",
+
+  "IMG20250705223950.jpg",
+
+  "IMG20250705224003.jpg",
+
+  "IMG20250705224006.jpg",
+
+  "IMG20250705224047.jpg",
+
+  "IMG20250705224102.jpg",
+
+  "IMG20250705224113.jpg",
+
+  "IMG20250705224116.jpg",
+
+  "IMG20250705224122.jpg",
+
+  "IMG20250705224248.jpg",
+
+  "IMG20250705224253.jpg",
+
+  "IMG20250705224259.jpg",
+
+  "IMG20250705224303.jpg",
+
+  "IMG20250705230508.jpg",
+
+  "IMG20250705230514.jpg",
+
+  "IMG20250705230519.jpg",
+
+  "IMG20250705230530.jpg",
+
+  "IMG20250705230532.jpg",
+
+  "IMG20250705230544.jpg",
+
+  "IMG20250705230545.jpg",
+
+  "IMG20250705230555.jpg",
+
+  "IMG20250705230557.jpg",
+
+  "IMG20250705230600.jpg",
+
+  "IMG20250705230605.jpg",
+
+  "IMG20250705232131.jpg",
+
+  "IMG20250705232137.jpg",
+
+  "IMG20250705232147.jpg",
+
+  "IMG20250705232149.jpg",
+
+  "IMG20250705232154.jpg",
+
+  "IMG20250705232157.jpg",
+
+  "IMG20250705232906.jpg",
+
+  "IMG20250705232915.jpg",
+
+  "IMG20250705232915_01.jpg",
+
+  "IMG20250705233955.jpg",
+
+  "IMG20250705233958.jpg",
+
+  "IMG20250705234001.jpg",
+
+  "IMG20250705234006.jpg",
+
+  "IMG20250705234008.jpg",
+
+  "IMG20250705234033.jpg",
+
+  "IMG20250705234037.jpg",
+
+  "IMG20250705234038.jpg",
+
+  "IMG20250705234110.jpg",
+
+  "IMG20250705234114.jpg",
+
+  "IMG20250705234115.jpg",
+
+  "IMG20250705234137.jpg"
+];
+
+const gallery=document.getElementById("gallery");
+let currentIndex = 0;
+document.getElementById("photoCount").innerText =
+`${photos.length} Photos`;
+
+photos.forEach(photo=>{
+
+gallery.innerHTML+=`
+
+<img
+src="${imageFolder}${photo}"
+class="gallery-photo"
+loading="lazy"
+onclick="openPopup(this.src)">
+
+`;
+
+});
+
+function openPopup(imageSrc){
+
+    currentIndex = photos.findIndex(
+        photo => imageSrc.includes(photo)
+    );
+
+    document.getElementById("photoPopup").style.display="flex";
+
+    document.getElementById("popupImage").src=imageSrc;
+
+    document.getElementById("downloadBtn").href=imageSrc;
+}
+
+function closePopup(){
+
+    document.getElementById("photoPopup").style.display="none";
+}
+document.getElementById("photoPopup").addEventListener("click",function(e){
+
+    if(e.target===this){
+
+        closePopup();
+    }
+
+});
+
+function prevPhoto(){
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+
+        currentIndex = photos.length - 1;
+    }
+
+    let imagePath =
+imageFolder +
+photos[currentIndex];
+
+    document.getElementById("popupImage").src =
+    imagePath;
+
+    document.getElementById("downloadBtn").href =
+    imagePath;
+}
+
+function nextPhoto(){
+
+    currentIndex++;
+
+    if(currentIndex >= photos.length){
+
+        currentIndex = 0;
+    }
+
+   let imagePath =
+imageFolder +
+photos[currentIndex];
+
+    document.getElementById("popupImage").src =
+    imagePath;
+
+    document.getElementById("downloadBtn").href =
+    imagePath;
+}
+
+</script>
+
+<button id="topBtn" onclick="scrollToTop()">
+⬆
+</button>
+
+<script>
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.onscroll = function(){
+
+if(document.body.scrollTop > 300 ||
+document.documentElement.scrollTop > 300){
+
+topBtn.style.display = "block";
+
+}else{
+
+topBtn.style.display = "none";
+
+}
+
+};
+
+function scrollToTop(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mausi Badi 2025</title>
+
+<link rel="stylesheet" href="../../style.css">
+
+</head>
+<body>
+
+<h1>ମାଉସୀ ବାଡ଼ି - ୨୦୨୫</h1>
+
+<a href="2025.html" class="home-btn">⬅ Back</a>
+
+<h2>
+<p id="photoCount"></p>
+
+<div class="photo-gallery" id="gallery">
+</div>
+</h2>
+
+<footer class="footer">
+© Rath Yatra Portal | By : ରଥଯାତ୍ରା କମିଟି , ଦେଉଳା
+</footer>
+
+<div style="height:120px;"></div>
+
+<div class="bottom-nav">
+
+<a href="../home.html">
+<img src="../../images/icons/home.png" class="nav-icon">
+</a>
+
+<a href="../photos.html">
+<img src="../../images/icons/photos.png" class="nav-icon">
+</a>
+
+<a href="../search.html">
+<img src="../../images/icons/search.png" class="nav-icon">
+</a>
+
+<a href="../videos.html">
+<img src="../../images/icons/videos.png" class="nav-icon">
+</a>
+
+<a href="../notifications.html">
+<img src="../../images/icons/bell.png" class="nav-icon">
+</a>
+
+</div>
+<div id="photoPopup" class="popup">
+
+    <span class="close-btn" onclick="closePopup()">✖</span>
+
+    <div class="popup-nav">
+
+    <button onclick="prevPhoto()" class="nav-btn">⬅</button>
+
+    <img id="popupImage">
+
+    <button onclick="nextPhoto()" class="nav-btn">➡</button>
+
+</div>
+
+    <a id="downloadBtn" download>
+    Download Photo
+</a>
+
+</div>
+
+<script>
+
+const imageFolder = "../../images/2025/mausibadi/";
+
+const photos = [
+ "IMG20250705090354.jpg",
+
+  "IMG20250705090356.jpg",
+
+  "IMG20250705090413.jpg",
+
+  "IMG20250705090415.jpg",
+
+  "IMG20250705091955.jpg",
+
+  "IMG20250705092000.jpg",
+
+  "IMG20250705103315.jpg",
+
+  "IMG20250705103316.jpg",
+
+  "IMG20250705103319.jpg",
+
+  "IMG20250705103322.jpg",
+
+  "IMG20250705103324.jpg"
+
+];
+
+const gallery=document.getElementById("gallery");
+let currentIndex = 0;
+document.getElementById("photoCount").innerText =
+`${photos.length} Photos`;
+
+photos.forEach(photo=>{
+
+gallery.innerHTML+=`
+
+<img
+src="${imageFolder}${photo}"
+class="gallery-photo"
+loading="lazy"
+onclick="openPopup(this.src)">
+
+`;
+
+});
+
+function openPopup(imageSrc){
+
+    currentIndex = photos.findIndex(
+        photo => imageSrc.includes(photo)
+    );
+
+    document.getElementById("photoPopup").style.display="flex";
+
+    document.getElementById("popupImage").src=imageSrc;
+
+    document.getElementById("downloadBtn").href=imageSrc;
+}
+
+function closePopup(){
+
+    document.getElementById("photoPopup").style.display="none";
+}
+document.getElementById("photoPopup").addEventListener("click",function(e){
+
+    if(e.target===this){
+
+        closePopup();
+    }
+
+});
+
+function prevPhoto(){
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+
+        currentIndex = photos.length - 1;
+    }
+
+    let imagePath =
+imageFolder +
+photos[currentIndex];
+
+    document.getElementById("popupImage").src =
+    imagePath;
+
+    document.getElementById("downloadBtn").href =
+    imagePath;
+}
+
+function nextPhoto(){
+
+    currentIndex++;
+
+    if(currentIndex >= photos.length){
+
+        currentIndex = 0;
+    }
+
+   let imagePath =
+imageFolder +
+photos[currentIndex];
+
+    document.getElementById("popupImage").src =
+    imagePath;
+
+    document.getElementById("downloadBtn").href =
+    imagePath;
+}
+
+</script>
+
+<button id="topBtn" onclick="scrollToTop()">
+⬆
+</button>
+
+<script>
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.onscroll = function(){
+
+if(document.body.scrollTop > 300 ||
+document.documentElement.scrollTop > 300){
+
+topBtn.style.display = "block";
+
+}else{
+
+topBtn.style.display = "none";
+
+}
+
+};
+
+function scrollToTop(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+</script>
+
+
+
+</body>
+</html>

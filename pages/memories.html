@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memories</title>
+
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<h1 class="page-title">
+<img src="../images/icons/memories.png" class="title-icon">
+Memories
+</h1>
+
+<a href="home.html" class="back-btn">
+    ← Back
+</a>
+
+<div class="years">
+
+<a href="videos/memories2025.html" class="card menu-card">
+<img src="../images/icons/memories.png"
+class="menu-icon">
+<div>2025</div>
+</a>
+
+<a href="videos/memories2025.html" class="card menu-card">
+<img src="../images/icons/memories.png"
+class="menu-icon">
+<div>2024</div>
+</a>
+
+<a href="videos/memories2025.html" class="card menu-card">
+<img src="../images/icons/memories.png"
+class="menu-icon">
+<div>2023</div>
+</a>
+
+</div>
+
+<footer class="footer">
+© Rath Yatra Portal | By : ରଥଯାତ୍ରା କମିଟି , ଦେଉଳା
+</footer>
+
+<div style="height:120px;"></div>
+
+<div class="bottom-nav">
+
+<a href="home.html">
+<img src="../images/icons/home.png" class="nav-icon">
+</a>
+
+<a href="photos.html">
+<img src="../images/icons/photos.png" class="nav-icon">
+</a>
+
+<a href="search.html">
+<img src="../images/icons/search.png" class="nav-icon">
+</a>
+
+<a href="videos.html">
+<img src="../images/icons/videos.png" class="nav-icon">
+</a>
+
+<a href="notifications.html">
+<img src="../images/icons/bell.png"
+class="nav-icon">
+</a>
+
+</div>
+
+<button id="topBtn" onclick="scrollToTop()">
+⬆
+</button>
+
+<script>
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.onscroll = function(){
+
+if(document.body.scrollTop > 300 ||
+document.documentElement.scrollTop > 300){
+
+topBtn.style.display = "block";
+
+}else{
+
+topBtn.style.display = "none";
+
+}
+
+};
+
+function scrollToTop(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}
+
+</script>
+
+
+</body>
+</html>

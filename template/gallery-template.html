@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ratha Yatra 2024</title>
+
+<link rel="stylesheet" href="../../style.css">
+
+</head>
+<body>
+
+<h1>ରଥଯାତ୍ରା - ୨୦୨୪</h1>
+
+<a href="2024.html" class="home-btn">⬅ Back</a>
+
+<h2>📸 Ratha Yatra Photos - 2024</h2>
+
+<div class="photo-gallery" id="gallery">
+</div>
+
+<div class="bottom-nav">
+    <a href="../home.html">🏠</a>
+    <a href="../photos.html">📸</a>
+    <a href="../videos.html">🎬</a>
+    <a href="../memories.html">🏵</a>
+    <a href="../search.html">🔍</a>
+</div>
+
+<div id="photoPopup" class="popup">
+
+    <span class="close-btn" onclick="closePopup()">✖</span>
+
+    <img id="popupImage">
+
+    <a id="downloadBtn" download>
+    ⬇ Download Photo
+</a>
+
+</div>
+
+<script>
+
+const photos = [
+"IMG20240707160357_01.jpg",
+"IMG20240707160358_01.jpg",
+"IMG20240707161036_01.jpg",
+"IMG20240707161043_01.jpg",
+"IMG20240707161045_01.jpg",
+"IMG20240707161052_01.jpg",
+"IMG20240707161159_01.jpg",
+"IMG20240707161308_01.jpg",
+"IMG20240707161633_01.jpg",
+"IMG20240707161644_01.jpg",
+"IMG20240707161646_01.jpg",
+"IMG20240707161711_01.jpg",
+"IMG20240707161814_01.jpg",
+"IMG20240707161819_01.jpg",
+"IMG20240707162643_01.jpg",
+"IMG20240707162647_01.jpg",
+"IMG20240707162650_01.jpg",
+"IMG20240707162654_01.jpg",
+"IMG20240707164133_01.jpg",
+"IMG20240707164135_01.jpg",
+"IMG20240707164138_01.jpg",
+"IMG20240707164737_01.jpg",
+"IMG20240707164744_01.jpg",
+"IMG20240707164751_01.jpg",
+"IMG20240707164757_01.jpg",
+"IMG20240707165130_01.jpg",
+"IMG20240707165630_01.jpg",
+"IMG20240707165632_01.jpg",
+"IMG20240707165640_01.jpg",
+"IMG20240707165642_01.jpg",
+"IMG20240707165941_01.jpg",
+"IMG20240707170004_01.jpg",
+"IMG20240707170126.jpg",
+"IMG20240707170153_01.jpg",
+"IMG20240707170156_01.jpg",
+"IMG20240707170159_01.jpg",
+"IMG20240707170841_01.jpg",
+"IMG20240707171308_01.jpg",
+"IMG20240707171317_01.jpg",
+"IMG20240707171320_01.jpg",
+"IMG20240707171440_01.jpg",
+"IMG20240707171441_01.jpg",
+"IMG20240707171442_01.jpg",
+"IMG20240707171531_01.jpg",
+"IMG20240707171608_01.jpg",
+"IMG20240707171613_01.jpg",
+"IMG20240707171743_01.jpg",
+"IMG20240707171744_01.jpg",
+"IMG20240707172151_01.jpg",
+"IMG20240707172413_01.jpg",
+"IMG20240707172415_01.jpg",
+"IMG20240707172652_01.jpg"
+
+];
+
+const gallery=document.getElementById("gallery");
+
+photos.forEach(photo=>{
+
+gallery.innerHTML+=`
+
+<img
+src="../../images/2024/rathayatra/${photo}"
+class="gallery-photo"
+onclick="openPopup(this.src)">
+
+`;
+
+});
+
+function openPopup(imageSrc){
+
+    document.getElementById("photoPopup").style.display="flex";
+
+    document.getElementById("popupImage").src=imageSrc;
+
+    document.getElementById("downloadBtn").href=imageSrc;
+}
+
+function closePopup(){
+
+    document.getElementById("photoPopup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
