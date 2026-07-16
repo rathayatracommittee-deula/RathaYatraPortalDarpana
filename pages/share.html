@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Share</title>
+<script>
+
+const url = "https://rathayatracommittee-deula.github.io/RathaYatraPortalDarpana/";
+
+if(navigator.share){
+
+navigator.share({
+
+title:"Ratha Yatra Portal",
+
+text:"Visit our Website : THE ଦର୍ପଣ",
+
+url:url
+
+}).then(()=>{
+
+window.location.href="home.html";
+
+});
+
+}else{
+
+navigator.clipboard.writeText(url);
+
+alert("Website link copied!");
+
+window.location.href="home.html";
+
+}
+
+</script>
+</head>
+<body>
+</body>
+</html>

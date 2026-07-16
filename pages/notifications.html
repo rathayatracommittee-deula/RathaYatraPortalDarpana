@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -23,56 +24,77 @@ Notifications
 </a>
 
 <div class="card">
+
 <h3>
 <img src="../images/icons/bell.png"
 class="card-small-title-icon">
 Website Updates
 </h3>
 
-<p>
-Receive updates about:
-<br>
+<p>Receive updates about:</p>
+
 <p>
 <img src="../images/icons/image.png"
 class="card-verysmall-title-icon">
-New Photos |
-</p> 
+New Photos
+</p>
+
 <p>
 <img src="../images/icons/videos.png"
 class="card-verysmall-title-icon">
-New Videos |
-</p> 
+New Videos
+</p>
+
 <p>
 <img src="../images/icons/live-tv.png"
 class="card-verysmall-title-icon">
-Live Broadcasts |
-</p> 
+Live Broadcasts
+</p>
+
 <p>
 <img src="../images/icons/calendar.png"
 class="card-verysmall-title-icon">
-Schedule Changes |
-</p> 
+Schedule Changes
+</p>
+
 <p>
 <img src="../images/icons/notes.png"
 class="card-verysmall-title-icon">
-If Any Changes |
-</p> 
+Any Website Changes
 </p>
 
 </div>
 
 <div class="grid">
-<div class="card menu-card">
+
+<div class="card menu-card" onclick="enableNotify()">
+
 <img src="../images/icons/notification-on.png"
 class="card-search-title-icon">
-<div>ON</div>
+
+<div>Enable Notifications</div>
+
 </div>
 
-<div class="card menu-card">
+<div class="card menu-card" onclick="disableNotify()">
+
 <img src="../images/icons/notification-off.png"
 class="card-search-title-icon">
-<div>OFF</div>
+
+<div>Disable Notifications</div>
+
 </div>
+
+</div>
+
+<div class="card" id="statusCard">
+
+<h3>Status</h3>
+
+<p id="statusText">
+Checking...
+</p>
+
 </div>
 
 <footer class="footer">
@@ -104,6 +126,48 @@ class="card-search-title-icon">
 </a>
 
 </div>
+
+<script>
+
+function updateStatus(){
+
+let status = localStorage.getItem("notifications");
+
+if(status=="enabled"){
+
+document.getElementById("statusText").innerHTML="🟢 Notifications are Enabled";
+
+}else{
+
+document.getElementById("statusText").innerHTML="🔴 Notifications are Disabled";
+
+}
+
+}
+
+function enableNotify(){
+
+localStorage.setItem("notifications","enabled");
+
+alert("Notifications Enabled Successfully!");
+
+updateStatus();
+
+}
+
+function disableNotify(){
+
+localStorage.setItem("notifications","disabled");
+
+alert("Notifications Disabled.");
+
+updateStatus();
+
+}
+
+updateStatus();
+
+</script>
 
 </body>
 </html>
