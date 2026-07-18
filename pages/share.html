@@ -3,21 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Share</title>
+</head>
+<body>
+
 <script>
 
-const url = "https://rathayatracommittee-deula.github.io/RathaYatraPortalDarpana/";
+const websiteURL = "https://rathayatracommittee-deula.github.io/RathaYatraPortalDarpana/pages/home.html";
 
 if(navigator.share){
 
 navigator.share({
 
-title:"Ratha Yatra Portal",
+title:"ରଥଯାତ୍ରା ପୋର୍ଟାଲ",
 
 text:"Visit our Website : THE ଦର୍ପଣ",
 
-url:url
+url:websiteURL
 
-}).then(()=>{
+}).final(()=>{
 
 window.location.href="home.html";
 
@@ -25,16 +28,15 @@ window.location.href="home.html";
 
 }else{
 
-navigator.clipboard.writeText(url);
+navigator.clipboard.writeText(websiteURL);
 
-alert("Website link copied!");
+alert("Website link copied.");
 
 window.location.href="home.html";
 
 }
 
 </script>
-</head>
-<body>
+
 </body>
 </html>
