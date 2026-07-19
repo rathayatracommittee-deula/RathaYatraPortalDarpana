@@ -1,15 +1,18 @@
-function shareWebsite() {
-  if (navigator.share) {
-      navigator.share({
-         title: "ରଥଯାତ୍ରା ପୋର୍ଟାଲ",
-         text: "Visit our Digital Gallery",
-         url: "window.location.origin
-  }).catch(() => {});
-  } else {
+function sharePortal() {
 
-navigator.clipboard.writeText(window.location.origin);
-      alert("Website link copied.");
-  }
+    const shareData = {
+        title: "THE ଦର୍ପଣ",
+        text:Visit our Ratha Yatra Portal.\n\n📸 Photos\n🎥 Videos\n📥 Download Original Files\n\nOpen here:",
+        url: "https://rathayatracommittee-deula.github.io/RathaYatraPortalDarpana/"
+    };
+
+    if (navigator.share) {
+        navigator.share(shareData);
+    } else {
+        navigator.clipboard.writeText(shareData.url);
+        alert("Website link copied successfully!");
+    }
+
 }
 
 if ("serviceWorker" in navigator) {
