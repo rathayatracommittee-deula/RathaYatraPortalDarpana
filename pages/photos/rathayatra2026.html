@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mausi Badi 2026</title>
+<title>Ratha Yatra 2026</title>
 
 <link rel="stylesheet" href="../../style.css">
 
@@ -75,7 +75,6 @@
 const imageFolder = "../../images/2026/rathayatra/";
 
 const photos = [
-"IMG20260716141807.heic",
 "IMG20260716153437_01.jpg",
 "IMG20260716153552_01.jpg",
 "IMG20260716153607_03.jpg",
@@ -162,12 +161,8 @@ const photos = [
 "IMG20260716170944.jpg",
 "IMG20260716171016_01.jpg",
 "IMG20260716171017_01.jpg",
-"IMG20260716174612.heic",
-"IMG20260716181158.heic",
 "IMG20260716182249_01.jpg",
 "IMG20260716182825_01.jpg",
-"IMG20260716183917.heic",
-"IMG20260716183941.heic",
 "IMG_20260716_152008.jpg",
 "IMG_20260716_152028.jpg",
 "IMG_20260716_152058.jpg",
@@ -272,19 +267,23 @@ let currentIndex = 0;
 document.getElementById("photoCount").innerText =
 ` ${photos.length} Photos`;
 
-photos.forEach(photo=>{
+photos.forEach(photo => {
 
-gallery.innerHTML+=`
+    const img = document.createElement("img");
 
-<img
-src="${imageFolder}${photo}"
-class="gallery-photo"
-loading="lazy"
-onclick="openPopup(this.src)">
+    img.src = imageFolder + photo;
+    img.className = "gallery-photo";
 
-`;
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.fetchPriority = "low";
+
+    img.onclick = () => openPopup(img.src);
+
+    gallery.appendChild(img);
 
 });
+
 
 function openPopup(imageSrc){
 

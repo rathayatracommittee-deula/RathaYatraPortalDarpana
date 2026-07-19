@@ -1148,3 +1148,14 @@ transform:scale(1.03);
     flex-shrink:0;
     filter:brightness(0) invert(1);
 }
+
+.gallery-photo{
+
+width:100%;
+border-radius:10px;
+cursor:pointer;
+
+content-visibility:auto;
+contain-intrinsic-size:250px;
+
+}
